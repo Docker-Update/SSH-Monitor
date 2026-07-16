@@ -14,6 +14,7 @@ REPO="https://github.com/Docker-Update/SSH-Monitor.git"
 
 SOURCE_DIR="/opt/ssh-monitor-src"
 INSTALL_DIR="/opt/ssh-monitor"
+COMMAND_DIR="/usr/local/bin"
 
 SERVICE_FILE="/etc/systemd/system/${SERVICE_NAME}.service"
 
@@ -100,6 +101,18 @@ compile()
     cmake ..
 
     make -j"$(nproc)"
+}
+
+install_command(){
+    info "Installation du programme..."
+
+    if [ -f "$COMMAND_DIR/sshmonitor.sh" ]; then
+        mkdir -p "$COMMAND_DIR"
+    else
+        cp "$SOURCE_DIR/sshmonitor.sh" "$COMMAND_DIR/sshmonitor.sh"
+        chmod +x "$COMMAND_DIR/sshmonitor.sh"
+        warn "$COMMAND_DIR existe déjà, conservation."
+    fi
 }
 
 
@@ -227,6 +240,7 @@ install()
     compile
     install_binary
     create_service
+    install_command
 
 
     echo
