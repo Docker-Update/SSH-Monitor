@@ -5,7 +5,7 @@ project(SSHMonitor)
 set(CMAKE_CXX_STANDARD 20)
 
 find_package(CURL REQUIRED)
-find_package(nlohmann_json CONFIG REQUIRED)
+find_package(nlohmann_json REQUIRED)
 
 add_executable(SSHMonitor
         main.cpp
@@ -13,9 +13,6 @@ add_executable(SSHMonitor
         Webhook.cpp
         Whitelist.cpp
         Monitor.cpp
-        Includes/Whitelist.h
-        Includes/Webhook.h
-        Includes/Monitor.h
 )
 
 target_include_directories(SSHMonitor PRIVATE include)
