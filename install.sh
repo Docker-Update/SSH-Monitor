@@ -4,13 +4,13 @@ set -e
 
 #######################################
 # SSH Monitor Universal Installer
-# GitHub: Docker-Update/SSH-Monitor
+# GitHub: Tools-Linux/SSH-Monitor
 #######################################
 
 APP_NAME="SSHMonitor"
 SERVICE_NAME="ssh-monitor"
 
-REPO="https://github.com/Docker-Update/SSH-Monitor.git"
+REPO="https://github.com/Tools-Linux/SSH-Monitor.git"
 
 SOURCE_DIR="/opt/ssh-monitor-src"
 INSTALL_DIR="/opt/ssh-monitor"
