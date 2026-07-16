@@ -4,7 +4,7 @@ project(SSHMonitor)
 
 set(CMAKE_CXX_STANDARD 20)
 
-find_package(CURL CONFIG REQUIRED)
+find_package(CURL REQUIRED)
 find_package(nlohmann_json CONFIG REQUIRED)
 
 add_executable(SSHMonitor
