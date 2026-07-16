@@ -1,4 +1,4 @@
 {
-    "webhook_url": "https://discord.com/api/webhooks/ID/TOKEN",
+    "webhook_url": "YOUR_WEBHOOK_URL",
     "whitelist": []
 }

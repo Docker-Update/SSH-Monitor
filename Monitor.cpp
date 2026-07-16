@@ -4,7 +4,7 @@
 #include <cstdio>
 #include <regex>
 
-void Monitor::start(LoginCallback callback)
+void Monitor::Start(LoginCallback callback)
 {
     FILE* pipe =
         popen(

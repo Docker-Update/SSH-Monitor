@@ -61,7 +61,7 @@ int main()
 
     Monitor monitor;
 
-    monitor.start(
+    monitor.Start(
         [&](const std::string& user,
             const std::string& ip)
         {

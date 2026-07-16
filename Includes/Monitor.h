@@ -12,5 +12,5 @@ public:
             const std::string&
         )>;
 
-    void start(LoginCallback callback);
+    void Start(LoginCallback callback);
 };
