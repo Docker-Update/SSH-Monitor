@@ -33,7 +33,7 @@ SSH Monitor uses a single installation script to **install, update, reinstall, o
 Run the following command:
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/Docker-Update/SSH-Monitor/main/install.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/Tools-Linux/SSH-Monitor/main/install.sh)
 ```
 
 The installer will automatically display the available options.
@@ -80,11 +80,11 @@ Any connection from an unknown user or IP address will automatically trigger a D
 
 GitHub Repository
 
-https://github.com/Docker-Update/SSH-Monitor
+https://github.com/Tools-Linux/SSH-Monitor
 
 Report Issues
 
-https://github.com/Docker-Update/SSH-Monitor/issues
+https://github.com/Tools-Linux/SSH-Monitor/issues
 
 ---
 
@@ -92,4 +92,4 @@ https://github.com/Docker-Update/SSH-Monitor/issues
 
 This project is licensed under the MIT License.
 
-https://github.com/Docker-Update/SSH-Monitor/blob/main/LICENSE
+https://github.com/Tools-Linux/SSH-Monitor/blob/main/LICENSE
