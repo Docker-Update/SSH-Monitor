@@ -106,12 +106,12 @@ compile()
 install_command(){
     info "Installation du programme..."
 
-    if [ -f "$COMMAND_DIR/sshmonitor.sh" ]; then
+    if [ -f "$COMMAND_DIR/sshmonitor" ]; then
         mkdir -p "$COMMAND_DIR"
     else
-        cp "$SOURCE_DIR/sshmonitor.sh" "$COMMAND_DIR/sshmonitor.sh"
-        chmod +x "$COMMAND_DIR/sshmonitor.sh"
-        warn "$COMMAND_DIR existe déjà, conservation."
+        cp "$SOURCE_DIR/sshmonitor" "$COMMAND_DIR/sshmonitor"
+        chmod +x /usr/local/bin/sshmonitor
+        warn "$COMMAND_DIR Création du script de commande sshmonitor"
     fi
 }
 
@@ -226,6 +226,7 @@ uninstall()
 
     rm -rf "$INSTALL_DIR"
     rm -rf "$SOURCE_DIR"
+    rm- -rf "$COMMAND_DIR/sshmonitor"
 
 
     info "SSH Monitor supprimé."
