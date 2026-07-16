@@ -4,7 +4,6 @@
 #include "Includes/Monitor.h"
 #include "Includes/Webhook.h"
 #include "Includes/Whitelist.h"
-#include "Includes/Config.h"
 
 int main()
 {
