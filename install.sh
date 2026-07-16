@@ -258,6 +258,7 @@ install()
 
 
     info "Installation terminée."
+    info "You can manage the service with: monitor {start|stop|restart|status}"
 }
 
 
