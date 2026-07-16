@@ -1,23 +1,76 @@
 #!/bin/bash
 
+CONFIG="/opt/ssh-monitor/config.json"
+SERVICE="ssh-monitor"
+
 case "$1" in
     start)
         echo "Activation..."
-        systemctl start ssh-monitor
+        systemctl start "$SERVICE"
         ;;
+
     stop)
-        echo "Deactivation..."
-        systemctl stop ssh-monitor
+        echo "Désactivation..."
+        systemctl stop "$SERVICE"
         ;;
+
     restart)
         echo "Redémarrage..."
-        systemctl restart ssh-monitor
+        systemctl restart "$SERVICE"
         ;;
+
     status)
-        systemctl status ssh-monitor
+        systemctl status "$SERVICE"
         ;;
+
+    add)
+        if [ -z "$2" ]; then
+            echo "Usage: sshmonitor add <ip>"
+            exit 1
+        fi
+
+        if ! [[ "$2" =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ ]]; then
+            echo "Adresse IP invalide."
+            exit 1
+        fi
+
+        jq --arg ip "$2" '
+            if .whitelist | index($ip)
+            then .
+            else .whitelist += [$ip]
+            end
+        ' "$CONFIG" > /tmp/config.json && mv /tmp/config.json "$CONFIG"
+
+        echo "IP $2 ajoutée à la whitelist."
+        ;;
+
+    remove)
+        if [ -z "$2" ]; then
+            echo "Usage: sshmonitor remove <ip>"
+            exit 1
+        fi
+
+        jq --arg ip "$2" '
+            .whitelist |= map(select(. != $ip))
+        ' "$CONFIG" > /tmp/config.json && mv /tmp/config.json "$CONFIG"
+
+        echo "IP $2 supprimée de la whitelist."
+        ;;
+
+    list)
+        echo "Whitelist :"
+        jq -r '.whitelist[]' "$CONFIG"
+        ;;
+
     *)
-        echo "Usage: $0 {start|stop|restart|status}"
+        echo "Usage:"
+        echo "  sshmonitor start"
+        echo "  sshmonitor stop"
+        echo "  sshmonitor restart"
+        echo "  sshmonitor status"
+        echo "  sshmonitor add <ip>"
+        echo "  sshmonitor remove <ip>"
+        echo "  sshmonitor list"
         exit 1
         ;;
 esac
