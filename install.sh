@@ -62,7 +62,8 @@ install_dependencies()
         build-essential \
         pkg-config \
         libcurl4-openssl-dev \
-        nlohmann-json3-dev
+        nlohmann-json3-dev \
+        jq
 }
 
 
