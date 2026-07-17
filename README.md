@@ -92,4 +92,4 @@ https://github.com/Tools-Linux/SSH-Monitor/issues
 
 This project is licensed under the MIT License.
 
-https://github.com/Tools-Linux/SSH-Monitor/blob/main/LICENSE
+https://github.com/Tools-Linux/SSH-Monitor/blob/master/LICENSE
